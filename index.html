@@ -65,6 +65,10 @@
 	    
 		if(prediction[0].probability.toFixed(2) > 0.80){
 			labelContainer.childNodes[0].innerHTML = "aiue"
+		}else if(prediction[1].probability.toFixed(2) > 0.80){
+			labelContainer.childNodes[0].innerHTML = "あいう"
+		}else{
+			labelContainer.childNodes[0].innerHTML = "わからん"
 		}
 		
 		/*
