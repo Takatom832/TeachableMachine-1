@@ -64,11 +64,11 @@
         const prediction = await model.predict(webcam.canvas);
 	    
 		if(prediction[0].probability.toFixed(2) > 0.80){
-			labelContainer.childNodes[0].innerHTML = "aiue"
+			labelContainer.childNodes[0].innerHTML = "HAND"
 		}else if(prediction[1].probability.toFixed(2) > 0.80){
-			labelContainer.childNodes[0].innerHTML = "あいう"
+			labelContainer.childNodes[0].innerHTML = "FACE"
 		}else{
-			labelContainer.childNodes[0].innerHTML = "わからん"
+			labelContainer.childNodes[0].innerHTML = ""
 		}
 		
 		/*
