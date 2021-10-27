@@ -64,7 +64,7 @@
         const prediction = await model.predict(webcam.canvas);
 	    
 		if(prediction[0].probability.toFixed(2) > 0.8){
-			labelContainer.childNodes[i].innerHTML = "aiue"
+			labelContainer.childNodes[0].innerHTML = "aiue"
 		}
 		
 		/*
