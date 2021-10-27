@@ -64,7 +64,8 @@
         const prediction = await model.predict(webcam.canvas);
 	    
 	if(prediction[0].probability.toFixed(2) > 0.80){
-            sample1.innerHTML = "hey";
+        	sample1.innerHTML = "hey";
+		break;
         }
 	    
         for (let i = 0; i < maxPredictions; i++) {
