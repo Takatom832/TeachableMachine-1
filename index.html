@@ -140,7 +140,8 @@
 			labelContainer.childNodes[0].innerHTML = "異常検知"
 			var audio = new Audio('alarm.mp3');
   			audio.play();
-			  documents.getElementById("label-container").style.background="#ff0000"; ;
+			documents.getElementById("label-container").style.background = '#ff0000';
+
 		}else if(prediction[1].probability.toFixed(2) > 0.60){
 			labelContainer.childNodes[0].innerHTML = "通常"
 		}else{
