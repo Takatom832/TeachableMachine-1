@@ -13,16 +13,17 @@
 	/*見出し*/
 	h1 {
 		width: 500px;
-		height: 70px;
+		height: 60px;
 		margin: 0 auto;
 		text-align:left;
+		vertical-align:middle;
 	
 		appearance: none;
 		border: 0;
 		background: #c9dfff;
 		color: rgb(0, 0, 0);
 		padding: 8px 16px;
-		font-size: 50px;
+		font-size: 40px;
 		border:3px solid #303030;
 	}
 
@@ -48,7 +49,7 @@
 		border-radius: 10px;
 	}
 
-	/*現在の状況*/
+	/*current status*/
 	div.memo{
 		width: 500px;
 		height: 40px;
@@ -56,7 +57,7 @@
 		text-align:center;
 	}
 	div.memo2{
-		width: 100px;
+		width: 125px;
 		height: 25px;
 		text-align:center;
 		border:1px solid #303030;
@@ -72,7 +73,7 @@
 	
 		appearance: none;
 		border: 0;
-		border-radius: 5px;
+		border-radius: 10px;
 		background: #548b2f;
 		color: #fff;
 		padding: 8px 16px;
@@ -89,14 +90,14 @@
 
 <body>
 
-<h1>見守りくん 1</h1>
+<h1>Watching Over Safety</h1>
 <div class="space"> </div>
-<button type="button" onclick="init()" class="btn1">見守り開始ボタン</button>
+<button type="button" onclick="init()" class="btn1">Start Button</button>
 <div class="space"> </div>
 <div id="webcam-container"></div>
 <div class="space"> </div>
 <div class="space"> </div>
-<div class="memo"><div class="memo2">現在の状況</div></div>
+<div class="memo"><div class="memo2">Current Status</div></div>
 <div id="label-container" ></div>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
@@ -151,13 +152,13 @@
 
 	    
 		if(prediction[0].probability.toFixed(2) > 0.80){
-			labelContainer.childNodes[0].innerHTML = "異常検知"
+			labelContainer.childNodes[0].innerHTML = "EMERGENCY"
 			var audio = new Audio('alarm.mp3');
   			audio.play();
 			document.getElementById("label-container").style.backgroundColor = '#ff0000';
 
 		}else if(prediction[1].probability.toFixed(2) > 0.20){
-			labelContainer.childNodes[0].innerHTML = "通常"
+			labelContainer.childNodes[0].innerHTML = "NORMAL"
 			document.getElementById("label-container").style.backgroundColor = '#3e6931';
 		}else{
 			labelContainer.childNodes[0].innerHTML = ""
