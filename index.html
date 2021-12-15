@@ -68,7 +68,7 @@
 	    
 		if(prediction[0].probability.toFixed(2) > 0.60){
 			labelContainer.childNodes[0].innerHTML = "DANGEROUS"
-			var audio = new Audio('alarm.mp3');
+			audio.src='alarm.mp3';
 			audio.play();
 		}else if(prediction[1].probability.toFixed(2) > 0.60){
 			labelContainer.childNodes[0].innerHTML = "NORMAL"
