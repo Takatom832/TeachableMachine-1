@@ -9,6 +9,7 @@
 
 	<style>
 
+	/*ボタン*/
 	button.btn1 {
 		display: block;
 	  appearance: none;
@@ -29,13 +30,27 @@
 	  }
 	}
 
-	div{
+	
+	/*画像*/
+	div#webcam-container{
+		width: 500px;
+		height: 300px;
 		margin: 0 auto;
+		border-radius: 10px;
 	}
 
+	/*現在の状況*/
+	div.memo{
+		width: 600px;
+		height: 20px;
+		margin: 0 auto;
+		text-align:center;
+	}
+
+	/*変化するところ*/
 	div#label-container {
-		width: 300px;
-		height: 50px;
+		width: 400px;
+		height: 70px;
 		margin: 0 auto;
 		text-align:center;
 	
@@ -46,25 +61,12 @@
 	  background: #ff0000;
 	  color: #fff;
 	  padding: 8px 16px;
-	  font-size: 30px;
+	  font-size: 50px;
 	}
 
-	div#webcam-container{
-		width: 300px;
-		height: 300px;
-		margin: 0 auto;
-		border-radius: 10px;
-	}
-	
-	div.memo{
-		width: 600px;
-		height: 30px;
-		margin: 0 auto;
-		text-align:center;
-	}
-
+	/*スペース*/
 	div.space{
-		height: 10px;
+		height: 20px;
 	}
 
 		
@@ -107,7 +109,7 @@
 
         // Convenience function to setup a webcam
         const flip = true; // whether to flip the webcam
-        webcam = new tmImage.Webcam(300, 300, flip); // width, height, flip
+        webcam = new tmImage.Webcam(500, 300, flip); // width, height, flip
         await webcam.setup(); // request access to the webcam
         await webcam.play();
         window.requestAnimationFrame(loop);
@@ -135,11 +137,11 @@
 
 	    
 		if(prediction[0].probability.toFixed(2) > 0.60){
-			labelContainer.childNodes[0].innerHTML = "DANGEROUS"
+			labelContainer.childNodes[0].innerHTML = "異常検知"
 			var audio = new Audio('alarm.mp3');
   			audio.play();
-  }else if(prediction[1].probability.toFixed(2) > 0.60){
-			labelContainer.childNodes[0].innerHTML = "NORMAL"
+		}else if(prediction[1].probability.toFixed(2) > 0.60){
+			labelContainer.childNodes[0].innerHTML = "通常"
 		}else{
 			labelContainer.childNodes[0].innerHTML = ""
 		}
