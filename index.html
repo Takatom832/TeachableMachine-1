@@ -91,7 +91,7 @@
 
 <h1>見守りくん 1</h1>
 <div class="space"> </div>
-<button type="button" onclick="init()" class="btn1">見守り開始！</button>
+<button type="button" onclick="init()" class="btn1">見守り開始ボタン</button>
 <div class="space"> </div>
 <div id="webcam-container"></div>
 <div class="space"> </div>
@@ -150,13 +150,13 @@
         const prediction = await model.predict(webcam.canvas);
 
 	    
-		if(prediction[0].probability.toFixed(2) > 0.60){
+		if(prediction[0].probability.toFixed(2) > 0.80){
 			labelContainer.childNodes[0].innerHTML = "異常検知"
 			var audio = new Audio('alarm.mp3');
   			audio.play();
 			document.getElementById("label-container").style.backgroundColor = '#ff0000';
 
-		}else if(prediction[1].probability.toFixed(2) > 0.60){
+		}else if(prediction[1].probability.toFixed(2) > 0.20){
 			labelContainer.childNodes[0].innerHTML = "通常"
 			document.getElementById("label-container").style.backgroundColor = '#3e6931';
 		}else{
