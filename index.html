@@ -64,9 +64,9 @@
         const prediction = await model.predict(webcam.canvas);
 	    
 	if(prediction[0].probability.toFixed(2) > 0.60){
-		labelContainer.childNodes[0].innerHTML = "HAND"
+		labelContainer.childNodes[0].innerHTML = "DANGEROUS"
 	}else if(prediction[1].probability.toFixed(2) > 0.60){
-		labelContainer.childNodes[0].innerHTML = "FACE"
+		labelContainer.childNodes[0].innerHTML = "NORMAL"
 	}else{
 		labelContainer.childNodes[0].innerHTML = ""
 	}
